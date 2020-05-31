@@ -1,0 +1,38 @@
+{
+  "name": "rss-reader",
+  "version": "0.1.0",
+  "description": "Modern RSS Reader",
+  "main": "dist/entry.js",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p .",
+    "postbuild": "ef-tspm",
+    "start": "npm run build && node dist/entry.js",
+    "live": "nodemon -e ts --exec \"npm run start\"",
+    "presetup:repo": "npm run build",
+    "setup:repo": "node dist/repository/setup.js"
+  },
+  "bin": "./dist/entry.js",
+  "devDependencies": {
+    "@ef-carbon/tspm": "^2.2.5",
+    "@types/body-parser": "^1.19.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.6",
+    "@types/joi": "^14.3.4",
+    "@types/node": "^13.5.0",
+    "@types/yargs": "^15.0.4",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.0.0",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "arangojs": "^6.14.1",
+    "body-parser": "^1.19.0",
+    "celebrate": "^12.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-joi-validator": "^2.0.1",
+    "joi": "^14.3.1"
+  }
+}
