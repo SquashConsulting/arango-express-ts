@@ -1,7 +1,4 @@
-import HasItems from './hasItems';
-import HasFeeds from './hasFeeds';
-
-const Edges: Repo.EdgeDefinition[] = [HasItems, HasFeeds].map(
+const Edges: Repo.EdgeDefinition[] = [].map(
   (edge: Repo.EdgeExport): Repo.EdgeDefinition => ({
     ...edge,
     type: 'edge',

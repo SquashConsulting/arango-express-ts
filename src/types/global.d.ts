@@ -5,10 +5,12 @@ declare global {
   namespace Repo {
     type DateTimestamp = string;
     type CollectionType = 'edge' | 'document';
+    type JoiObject = { [key: string]: joi.AnySchema };
+    type Schema = joi.ObjectSchema | JoiObject;
 
     interface CollectionExport {
       name: string;
-      schema: joi.ObjectSchema;
+      schema: Schema;
       collection: DocumentCollection;
     }
 
