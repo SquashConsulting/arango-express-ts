@@ -1,12 +1,15 @@
 import joi from 'joi';
+import { DocumentCollection, EdgeCollection } from 'arangojs';
 
 declare global {
   namespace Repo {
+    type DateTimestamp = string;
     type CollectionType = 'edge' | 'document';
 
     interface CollectionExport {
       name: string;
       schema: joi.ObjectSchema;
+      collection: DocumentCollection;
     }
 
     interface CollectionDefinition extends CollectionExport {
@@ -15,6 +18,7 @@ declare global {
 
     interface EdgeExport {
       name: string;
+      collection: EdgeCollection;
     }
 
     interface EdgeDefinition extends EdgeExport {
