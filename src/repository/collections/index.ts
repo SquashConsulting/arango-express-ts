@@ -1,8 +1,6 @@
-import Feed from './feed';
-import Item from './item';
-import Category from './category';
+import User from './user';
 
-const Collections: Repo.CollectionDefinition[] = [Feed, Item, Category].map(
+const Collections: Repo.CollectionDefinition[] = [User].map(
   (collection: Repo.CollectionExport): Repo.CollectionDefinition => ({
     ...collection,
     type: 'document',
