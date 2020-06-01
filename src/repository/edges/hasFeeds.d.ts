@@ -1,5 +1,5 @@
 declare namespace Repo {
-  interface HasItems {
+  interface HasFeeds {
     createdAt: DateTimestamp;
   }
 }

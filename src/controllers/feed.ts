@@ -1,17 +1,13 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 
 import Feed from 'models/feed';
 import { Document } from 'arangojs/lib/cjs/util/types';
 
 /* Exports */
-export default { Post };
+export default { Create };
 
 /* Module Functions */
-async function Post(
-  req: Request,
-  res: Response,
-  next: NextFunction,
-): Promise<void> {
+async function Create(req: Request, res: Response): Promise<void> {
   const body: Repo.Feed = req.body.feed;
   const data: Document<Repo.Feed> = await Feed.create(body);
 

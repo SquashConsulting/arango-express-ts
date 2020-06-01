@@ -1,4 +1,3 @@
-import Joi from 'joi';
 import { Router } from 'express';
 import validateRequest from 'express-joi-validator';
 
@@ -14,7 +13,7 @@ feedRouter.post(
       feed: Feed.schema,
     },
   }),
-  FeedController.Post,
+  FeedController.Create,
 );
 
 export default feedRouter;
