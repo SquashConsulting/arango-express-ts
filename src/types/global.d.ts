@@ -7,10 +7,19 @@ declare global {
     type CollectionType = 'edge' | 'document';
     type JoiObject = { [key: string]: joi.AnySchema };
     type Schema = joi.ObjectSchema | JoiObject;
+    type IndexType =
+      | 'ttl'
+      | 'geo'
+      | 'hash'
+      | 'skiplist'
+      | 'fulltext'
+      | 'persistent';
+    type IndexDefinition = { type: IndexType; fields: string[] };
 
     interface CollectionExport {
       name: string;
       schema: Schema;
+      index?: IndexDefinition;
       collection: DocumentCollection;
     }
 

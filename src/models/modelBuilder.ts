@@ -1,12 +1,12 @@
-import { Document } from 'arangojs/lib/cjs/util/types';
-import { DocumentCollection, EdgeCollection } from 'arangojs';
+import { Document } from "arangojs/lib/cjs/util/types";
+import { DocumentCollection, EdgeCollection } from "arangojs";
 
 /* Exports */
 export default modelBuilder;
 
 /* Module Functions */
 function modelBuilder<T extends object = any>(
-  Collection: DocumentCollection<T> | EdgeCollection<T>,
+  Collection: DocumentCollection<T> | EdgeCollection<T>
 ) {
   return {
     get,
@@ -14,7 +14,7 @@ function modelBuilder<T extends object = any>(
     findOne,
     create,
     edit,
-    remove,
+    remove
   };
 
   function get(id: string): Promise<Document<T>> {
@@ -36,8 +36,11 @@ function modelBuilder<T extends object = any>(
     return { ...meta, ...body };
   }
 
-  async function edit(id: string, body: Document): Promise<Document<T>> {
-    const meta = await Collection.update({ _key: id }, body);
+  async function edit(id: string, body: T): Promise<Document<T>> {
+    const meta: Arango.InsertResults = await Collection.update(
+      { _key: id },
+      body
+    );
 
     return { ...meta, ...body };
   }

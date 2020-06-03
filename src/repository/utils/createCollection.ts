@@ -10,6 +10,16 @@ export default createCollection;
 async function createCollection(
   DB: Database,
   name: string,
+  type: 'edge',
+): Promise<EdgeCollection>;
+async function createCollection(
+  DB: Database,
+  name: string,
+  type: 'document',
+): Promise<DocumentCollection>;
+async function createCollection(
+  DB: Database,
+  name: string,
   type: Repo.CollectionType,
 ): Promise<CreationResult> {
   const collection =
